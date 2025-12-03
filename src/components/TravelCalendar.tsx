@@ -1,184 +1,181 @@
 import { Calendar, Plane, MapPin, PartyPopper, Waves, UtensilsCrossed, Bus, Hotel, Palmtree } from "lucide-react";
 import { DayCard } from "./DayCard";
+import React from 'react';
 
 export interface TravelDay {
-  date: number;
-  month: string;
-  weekday: string;
-  title: string;
-  activities: string[];
-  highlight?: "birthday" | "beach-park" | "travel";
-  icon?: "plane" | "party" | "waves" | "bus";
+    date: number;
+    month: string;
+    weekday: string;
+    title: string;
+    activities: string[];
+    highlight?: 'birthday' | 'beach-park' | 'travel';
+    icon?: 'plane' | 'party' | 'waves' | 'bus';
 }
 
 const travelDays: TravelDay[] = [
-  {
-    date: 16,
-    month: "Março",
-    weekday: "Domingo",
-    title: "Viagem até Fortaleza",
-    activities: [
-      "07:20 — Ônibus da sua cidade → Belo Horizonte",
-      "10:45 — Chegada em BH",
-      "Almoço rápido no terminal",
-      "Embarque no voo",
-      "17:00 — Chegada em Fortaleza",
-      "Check-in",
-      "Noite leve para descansar"
-    ],
-    highlight: "travel",
-    icon: "plane"
-  },
-  {
-    date: 17,
-    month: "Março",
-    weekday: "Segunda-feira",
-    title: "Primeiro dia na cidade",
-    activities: [
-      "Manhã: Praia do Futuro",
-      "Tarde: Passeio leve (mercado, artesanato)",
-      "Noite: jantar (se quiser Outback, esse é o melhor dia)"
-    ],
-    icon: "waves"
-  },
-  {
-    date: 18,
-    month: "Março",
-    weekday: "Terça-feira",
-    title: "🎉 Aniversário",
-    activities: [
-      "Manhã relax",
-      "Almoço especial",
-      "Tarde: Beira-Mar",
-      "Noite: comemoração"
-    ],
-    highlight: "birthday",
-    icon: "party"
-  },
-  {
-    date: 19,
-    month: "Março",
-    weekday: "Quarta-feira",
-    title: "🎉 Dia extra de comemoração",
-    activities: [
-      "Manhã: Praia",
-      "Tarde: passeio (Cumbuco opcional)",
-      "Noite livre"
-    ],
-    highlight: "birthday",
-    icon: "party"
-  },
-  {
-    date: 20,
-    month: "Março",
-    weekday: "Quinta-feira",
-    title: "🎡 Beach Park – Dia inteiro",
-    activities: [
-      "Chegada pela manhã",
-      "Parque até 17h",
-      "Noite: descanso total"
-    ],
-    highlight: "beach-park",
-    icon: "waves"
-  },
-  {
-    date: 21,
-    month: "Março",
-    weekday: "Sexta-feira",
-    title: "Início da viagem para Jericoacara",
-    activities: [
-      "Manhã livre em Fortaleza",
-      "Organizar mala pequena",
-      "Final da tarde/noite:",
-      "Saída de ônibus/coletivo para Recife ou Maceió",
-      "Viagem noturna (ideal para aproveitar o dia seguinte)"
-    ],
-    highlight: "travel",
-    icon: "bus"
-  },
-  {
-    date: 22,
-    month: "Março",
-    weekday: "Sábado",
-    title: "Jericoacara – Dia 1",
-    activities: [
-      "Chegada pela manhã",
-      "Check-in",
-      "Passeio às Galés (dependendo da maré)",
-      "Tarde: Praia de Barra Grande",
-      "Noite tranquila"
-    ],
-    icon: "waves"
-  },
-  {
-    date: 23,
-    month: "Março",
-    weekday: "Domingo",
-    title: "Jericoacara – Dia 2",
-    activities: [
-      "Manhã: Praia de Antunes / Burgalhau",
-      "Tarde: buggy, lancha ou descanso",
-      "Final da tarde/noite:",
-      "Retorno para Recife/Maceió",
-      "Ônibus de volta para Fortaleza (viagem noturna)"
-    ],
-    highlight: "travel",
-    icon: "bus"
-  },
-  {
-    date: 24,
-    month: "Março",
-    weekday: "Segunda-feira",
-    title: "🎉 Aniversário",
-    activities: [
-      "Mesmo chegando de viagem:",
-      "Manhã leve",
-      "Almoço especial",
-      "Tarde de descanso ou praia calma",
-      "Noite romântica"
-    ],
-    highlight: "birthday",
-    icon: "party"
-  },
-  {
-    date: 25,
-    month: "Março",
-    weekday: "Terça-feira",
-    title: "Dia livre em Fortaleza",
-    activities: [
-      "Sugestões:",
-      "Morro Branco (falésias)",
-      "Ou Cumbuco",
-      "Ou feirinha Beira-Mar + passeio leve"
-    ],
-    icon: "waves"
-  },
-  {
-    date: 26,
-    month: "Março",
-    weekday: "Quarta-feira",
-    title: "Último dia de passeio forte",
-    activities: [
-      "Repetir Beach Park",
-      "Passeio de buggy",
-      "Praia do Japão",
-      "Ou apenas descanso antes da volta"
-    ],
-    highlight: "beach-park",
-    icon: "waves"
-  },
-  {
-    date: 27,
-    month: "Março",
-    weekday: "Quinta-feira",
-    title: "Retorno",
-    activities: [
-      "Voo Fortaleza → Belo Horizonte",
-      "Ônibus BH → casa"
-    ],
-    highlight: "travel",
-    icon: "plane"
-  }
+    {
+        date: 16,
+        month: 'Março',
+        weekday: 'Segunda-feira',
+        title: 'Viagem até Fortaleza',
+        activities: [
+            '07:20 — Ônibus da sua cidade → Belo Horizonte',
+            '10:45 — Chegada em BH',
+            'Almoço rápido no terminal',
+            '14:30 — Embarque no voo',
+            '17:00 — Chegada em Fortaleza',
+            'Check-in',
+            'Noite leve para descansar',
+        ],
+        highlight: 'travel',
+        icon: 'plane',
+    },
+    {
+        date: 17,
+        month: 'Março',
+        weekday: 'Terça-feira',
+        title: 'Primeiro dia na cidade',
+        activities: [
+            'Manhã: Parque do Cocó',
+            'Tarde: Passeio leve (mercado, artesanato ou shopping)',
+            'Noite: Rodízio do Outback 🥩(talvez faça sentido ir apos dia 23)',
+            '(Hairon e Gabi vão junto!)',
+        ],
+        icon: 'waves',
+    },
+    {
+        date: 18,
+        month: 'Março',
+        weekday: 'Quarta-feira',
+        title: '🎉 Aniversário',
+        activities: [
+            'Manhã relaxante no hotel',
+            'Almoço especial(pensar em algo)',
+            'Tarde e Noite: comemoração(verificar com Gabi e Dre)',
+        ],
+        highlight: 'birthday',
+        icon: 'party',
+    },
+    {
+        date: 19,
+        month: 'Março',
+        weekday: 'Quinta-feira',
+        title: '🎉 Dia extra de comemoração',
+        activities: [
+            'Manhã: Praia',
+            'Almoço na praia',
+            'Tarde: Museu ou Catedral',
+            'Noite: Comemoração(verificar com Davi)',
+        ],
+        highlight: 'birthday',
+        icon: 'party',
+    },
+    {
+        date: 20,
+        month: 'Março',
+        weekday: 'Sexta-feira',
+        title: 'Sexta - Saída geral! 🎉',
+        activities: [
+            'Manhã: Atrações culturais (Catedral, Dragão do Mar)',
+            'Tarde: Teatro José de Alencar (ver se tem atração)',
+            'Noite: Paçoca com Hairon e Bito 🍻(?)',
+        ],
+        icon: 'party',
+    },
+    {
+        date: 21,
+        month: 'Março',
+        weekday: 'Sábado',
+        title: '🎡 Beach Park – Dia inteiro',
+        activities: ['Chegada pela manhã', 'Parque até 17h', 'Noite: descanso total'],
+        highlight: 'beach-park',
+        icon: 'waves',
+    },
+    {
+        date: 22,
+        month: 'Março',
+        weekday: 'Domingo',
+        title: 'Viagem para Jericoacoara / Canoa Quebrada',
+        activities: [
+            'Opção 1: Jericoacoara (mais caro, mas lindo)',
+            'Saída cedo (5h) - chegada ~9h30',
+            'Check-in e Pedra Furada, Árvore caída',
+            'Opção 2: Canoa Quebrada (60 conto/dia)',
+            'Tirolesa e atrações',
+        ],
+        highlight: 'travel',
+        icon: 'bus',
+    },
+    {
+        date: 23,
+        month: 'Março',
+        weekday: 'Segunda-feira',
+        title: 'Jericoacoara / Canoa / Cumbuco – Dia 2',
+        activities: [
+            'Manhã: Praias ou atrações locais da vila',
+            'Tarde: Buggy, Pedra Furada, Buraco Azul ou Lagoa do Paraíso',
+            'Final da tarde/noite:',
+            'Retorno para Fortaleza',
+        ],
+        icon: 'waves',
+    },
+    {
+        date: 24,
+        month: 'Março',
+        weekday: 'Terça-feira',
+        title: '🎉 Aniversário',
+        activities: [
+            'Mesmo chegando de viagem:',
+            'Manhã leve',
+            'Almoço especial(pensar em algo)',
+            'Tarde de descanso ou comemoração(verificar com Harion e Sara)',
+            'Noite romântica caso não tenha comemoração',
+        ],
+        highlight: 'birthday',
+        icon: 'party',
+    },
+    {
+        date: 25,
+        month: 'Março',
+        weekday: 'Quarta-feira',
+        title: 'Dia livre em Fortaleza',
+        activities: [
+            'Opções:',
+            '🌴 Dunas (mais bonito e perto que Morro Branco)',
+            '🏛️ Museu da Cachaça',
+            '🏖️ Feirinha Beira-Mar + passeio',
+            '⛰️ Guaramiranga (serra)',
+        ],
+        icon: 'waves',
+    },
+    {
+        date: 26,
+        month: 'Março',
+        weekday: 'Quinta-feira',
+        title: 'Último dia de passeio',
+        activities: [
+            'Opções:',
+            '🎡 Repetir Beach Park (se quiser)',
+            '🏖️ Praia do Tatu (gêiseres naturais)',
+            '🐟 Rodízio de Sushi',
+        ],
+        highlight: 'beach-park',
+        icon: 'waves',
+    },
+    {
+        date: 27,
+        month: 'Março',
+        weekday: 'Sexta-feira',
+        title: 'Retorno',
+        activities: [
+            'verificar horário do voo',
+            '🏖️ Sabiaguaba(se tiver tempo)',
+            'Voo Fortaleza → Belo Horizonte',
+            'Ônibus BH → casa',
+        ],
+        highlight: 'travel',
+        icon: 'plane',
+    },
 ];
 
 export function TravelCalendar() {

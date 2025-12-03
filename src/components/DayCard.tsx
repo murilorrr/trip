@@ -1,5 +1,6 @@
 import { Plane, PartyPopper, Waves, Bus, Calendar } from "lucide-react";
 import { TravelDay } from "./TravelCalendar";
+import React from "react";
 
 interface DayCardProps {
   day: TravelDay;
