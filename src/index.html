@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário de Viagem - Fortaleza & Maragogi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .palm-icon {
+            width: 40px;
+            height: 40px;
+            color: #0891b2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0e7490;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0891b2;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #4b5563;
+            font-size: 1.125rem;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+
+        .legend-dot.birthday {
+            background: #fce7f3;
+            border-color: #f9a8d4;
+        }
+
+        .legend-dot.beach-park {
+            background: #cffafe;
+            border-color: #22d3ee;
+        }
+
+        .legend-dot.travel {
+            background: #dbeafe;
+            border-color: #60a5fa;
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Day Card */
+        .day-card {
+            border-radius: 1rem;
+            border: 2px solid;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .day-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-card.birthday {
+            background: linear-gradient(to bottom right, #fdf2f8, #fce7f3);
+            border-color: #f9a8d4;
+        }
+
+        .day-card.beach-park {
+            background: linear-gradient(to bottom right, #ecfeff, #cffafe);
+            border-color: #22d3ee;
+        }
+
+        .day-card.travel {
+            background: linear-gradient(to bottom right, #eff6ff, #dbeafe);
+            border-color: #60a5fa;
+        }
+
+        .day-card.default {
+            background: white;
+            border-color: #e5e7eb;
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .date-info {
+            flex: 1;
+        }
+
+        .date-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1d4ed8;
+            line-height: 1;
+        }
+
+        .weekday {
+            font-size: 0.875rem;
+            color: #4b5563;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+        }
+
+        .month {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-birthday { color: #db2777; }
+        .icon-beach-park { color: #0891b2; }
+        .icon-travel { color: #2563eb; }
+        .icon-default { color: #4b5563; }
+
+        /* Card Title */
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        /* Activities List */
+        .activities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .activity-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #0891b2;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-icon {
+            width: 20px;
+            height: 20px;
+            color: #0891b2;
+        }
+
+        .footer-text {
+            color: #374151;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SVG Icons */
+        svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-icons">
+                <svg class="palm-icon" viewBox="0 0 24 24">
+                    <path d="M13 8c0-2.76-2.24-5-5-5S3 5.24 3 8c0 2.76 2.24 5 5 5s5-2.24 5-5z"/>
+                    <path d="M13 14H8v10h5V14z"/>
+                    <path d="M17 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                </svg>
+                <h1>ITINERÁRIO</h1>
+                <svg class="palm-icon" viewBox="0 0 24 24">
+                    <path d="M13 8c0-2.76-2.24-5-5-5S3 5.24 3 8c0 2.76 2.24 5 5 5s5-2.24 5-5z"/>
+                    <path d="M13 14H8v10h5V14z"/>
+                    <path d="M17 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                </svg>
+            </div>
+            <h2>Fortaleza & Maragogi</h2>
+            <p class="subtitle">16 a 27 de Março de 2025</p>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot birthday"></div>
+                <span>Aniversário</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot beach-park"></div>
+                <span>Beach Park</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot travel"></div>
+                <span>Viagem</span>
+            </div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-grid">
+            <!-- Day 1 -->
+            <div class="day-card travel">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">16</span>
+                            <span class="weekday">Domingo</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-travel" viewBox="0 0 24 24">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                    </svg>
+                </div>
+                <div class="card-title">Viagem até Fortaleza</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">07:20 — Ônibus da sua cidade → Belo Horizonte</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">10:45 — Chegada em BH</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Almoço rápido no terminal</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Embarque no voo</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">17:00 — Chegada em Fortaleza</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Check-in</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite leve para descansar</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="day-card default">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">17</span>
+                            <span class="weekday">Segunda-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-default" viewBox="0 0 24 24">
+                        <path d="M17 6.1H3c-1.1 0-2 .9-2 2V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.1c0-1.1-.9-2-2-2z"/>
+                        <path d="M3 5V3h18v2"/>
+                    </svg>
+                </div>
+                <div class="card-title">Primeiro dia na cidade</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã: Praia do Futuro</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde: Passeio leve (mercado, artesanato)</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite: jantar (se quiser Outback, esse é o melhor dia)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="day-card birthday">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">18</span>
+                            <span class="weekday">Terça-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-birthday" viewBox="0 0 24 24">
+                        <path d="M5.8 11.3 2 22l10.7-3.79L22 22l-3.8-10.7L22 3l-8.3 3.8L7.7 3l3.8 8.3z"/>
+                    </svg>
+                </div>
+                <div class="card-title">🎉 Aniversário</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã relax</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Almoço especial</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde: Beira-Mar</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite: comemoração</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="day-card birthday">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">19</span>
+                            <span class="weekday">Quarta-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-birthday" viewBox="0 0 24 24">
+                        <path d="M5.8 11.3 2 22l10.7-3.79L22 22l-3.8-10.7L22 3l-8.3 3.8L7.7 3l3.8 8.3z"/>
+                    </svg>
+                </div>
+                <div class="card-title">🎉 Dia extra de comemoração</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã: Praia</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde: passeio (Cumbuco opcional)</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite livre</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="day-card beach-park">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">20</span>
+                            <span class="weekday">Quinta-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-beach-park" viewBox="0 0 24 24">
+                        <path d="M17 6.1H3c-1.1 0-2 .9-2 2V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.1c0-1.1-.9-2-2-2z"/>
+                        <path d="M3 5V3h18v2"/>
+                    </svg>
+                </div>
+                <div class="card-title">🎡 Beach Park – Dia inteiro</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Chegada pela manhã</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Parque até 17h</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite: descanso total</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="day-card travel">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">21</span>
+                            <span class="weekday">Sexta-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-travel" viewBox="0 0 24 24">
+                        <rect x="16" y="4" width="6" height="16" rx="1"/>
+                        <rect x="2" y="4" width="6" height="16" rx="1"/>
+                        <path d="M12 4h4"/>
+                        <path d="M12 20h4"/>
+                        <path d="M8 12h8"/>
+                    </svg>
+                </div>
+                <div class="card-title">Início da viagem para Maragogi</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã livre em Fortaleza</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Organizar mala pequena</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Final da tarde/noite:</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Saída de ônibus/coletivo para Recife ou Maceió</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Viagem noturna (ideal para aproveitar o dia seguinte)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="day-card default">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">22</span>
+                            <span class="weekday">Sábado</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-default" viewBox="0 0 24 24">
+                        <path d="M17 6.1H3c-1.1 0-2 .9-2 2V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.1c0-1.1-.9-2-2-2z"/>
+                        <path d="M3 5V3h18v2"/>
+                    </svg>
+                </div>
+                <div class="card-title">Maragogi – Dia 1</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Chegada pela manhã</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Check-in</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Passeio às Galés (dependendo da maré)</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde: Praia de Barra Grande</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite tranquila</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="day-card travel">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">23</span>
+                            <span class="weekday">Domingo</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-travel" viewBox="0 0 24 24">
+                        <rect x="16" y="4" width="6" height="16" rx="1"/>
+                        <rect x="2" y="4" width="6" height="16" rx="1"/>
+                        <path d="M12 4h4"/>
+                        <path d="M12 20h4"/>
+                        <path d="M8 12h8"/>
+                    </svg>
+                </div>
+                <div class="card-title">Maragogi – Dia 2</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã: Praia de Antunes / Burgalhau</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde: buggy, lancha ou descanso</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Final da tarde/noite:</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Retorno para Recife/Maceió</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Ônibus de volta para Fortaleza (viagem noturna)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 9 -->
+            <div class="day-card birthday">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">24</span>
+                            <span class="weekday">Segunda-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-birthday" viewBox="0 0 24 24">
+                        <path d="M5.8 11.3 2 22l10.7-3.79L22 22l-3.8-10.7L22 3l-8.3 3.8L7.7 3l3.8 8.3z"/>
+                    </svg>
+                </div>
+                <div class="card-title">🎉 Aniversário</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Mesmo chegando de viagem:</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Manhã leve</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Almoço especial</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Tarde de descanso ou praia calma</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Noite romântica</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 10 -->
+            <div class="day-card default">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">25</span>
+                            <span class="weekday">Terça-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-default" viewBox="0 0 24 24">
+                        <path d="M17 6.1H3c-1.1 0-2 .9-2 2V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.1c0-1.1-.9-2-2-2z"/>
+                        <path d="M3 5V3h18v2"/>
+                    </svg>
+                </div>
+                <div class="card-title">Dia livre em Fortaleza</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Sugestões:</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Morro Branco (falésias)</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Ou Cumbuco</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Ou feirinha Beira-Mar + passeio leve</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 11 -->
+            <div class="day-card beach-park">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">26</span>
+                            <span class="weekday">Quarta-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-beach-park" viewBox="0 0 24 24">
+                        <path d="M17 6.1H3c-1.1 0-2 .9-2 2V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8.1c0-1.1-.9-2-2-2z"/>
+                        <path d="M3 5V3h18v2"/>
+                    </svg>
+                </div>
+                <div class="card-title">Último dia de passeio forte</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Repetir Beach Park</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Passeio de buggy</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Praia do Japão</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Ou apenas descanso antes da volta</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 12 -->
+            <div class="day-card travel">
+                <div class="card-header">
+                    <div class="date-info">
+                        <div>
+                            <span class="date-number">27</span>
+                            <span class="weekday">Quinta-feira</span>
+                        </div>
+                        <div class="month">Março</div>
+                    </div>
+                    <svg class="card-icon icon-travel" viewBox="0 0 24 24">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                    </svg>
+                </div>
+                <div class="card-title">Retorno</div>
+                <div class="activities">
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Voo Fortaleza → Belo Horizonte</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot"></div>
+                        <div class="activity-text">Ônibus BH → casa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-badge">
+                <svg class="footer-icon" viewBox="0 0 24 24">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span class="footer-text">Boa viagem! 🌴☀️</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
