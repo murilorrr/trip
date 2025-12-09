@@ -135,7 +135,7 @@ export function TravelInfo() {
                         <FileText className="w-8 h-8 text-blue-600" />
                     </div>
                 </div>
-                <p className="text-gray-600 text-lg">Tudo que você precisa saber para sua viagem</p>
+                <p className="text-gray-600 text-lg"> Tudo que você precisa saber para sua viagem</p>
             </div>
 
             {/* Checklist de Preparação */}
