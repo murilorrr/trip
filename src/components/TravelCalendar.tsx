@@ -146,20 +146,16 @@ const travelDays: TravelDay[] = [
         month: 'Março',
         weekday: 'Quinta-feira',
         title: 'Último dia de passeio',
-        activities: [
-            'Manhã: Praia do Tatu (gêiseres naturais)',
-            'Tarde: Continuar na praia ou descanso',
-            'Noite: Ronco do Mar',
-        ],
+        activities: ['Manhã: Planejar', 'Tarde: Como não', 'Noite: Passa fome (Ronco do Mar)'],
         icon: 'party',
     },
     {
         date: 27,
         month: 'Março',
         weekday: 'Sexta-feira',
-        title: 'Retorno',
+        title: 'Retorno para Belo Horizonte',
         activities: [
-            'Manhã: Sabiaguaba (se tiver tempo)',
+            'Manhã: Manhã livre',
             'Tarde: 16:15 — Chegada no aeroporto',
             'Noite: 18:15 — Voo Fortaleza → Belo Horizonte',
             'Madrugada: Ônibus BH → casa',
