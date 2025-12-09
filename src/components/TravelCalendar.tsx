@@ -1,4 +1,4 @@
-import { MapPin, Palmtree } from 'lucide-react';
+import { MapPin, Calendar, Sparkles, AlertCircle } from 'lucide-react';
 import { DayCard } from './DayCard';
 import React from 'react';
 
@@ -8,7 +8,7 @@ export interface TravelDay {
     weekday: string;
     title: string;
     activities: string[];
-    highlight?: 'birthday' | 'beach-park' | 'travel';
+    highlight?: 'birthday' | 'beach-park' | 'jericoacoara' | 'travel';
     icon?: 'plane' | 'party' | 'waves' | 'bus';
 }
 
@@ -35,7 +35,7 @@ const travelDays: TravelDay[] = [
         month: 'Março',
         weekday: 'Terça-feira',
         title: 'Primeiro dia na cidade',
-        activities: ['Manhã: praia de sabiaguaba', 'Tarde e Noite: Shopping Rio Mar Fortaleza'],
+        activities: ['Manhã: Praia de Sabiaguaba', 'Tarde e Noite: Shopping Rio Mar Fortaleza'],
         icon: 'waves',
     },
     {
@@ -44,12 +44,12 @@ const travelDays: TravelDay[] = [
         weekday: 'Quarta-feira',
         title: 'Dia livre',
         activities: [
-            'Manhã: Mercado dos Peixes ou praia perto',
+            'Manhã: Mercado dos Peixes',
             'Almoço: Mercado dos Peixes',
-            'Tarde: descanso',
+            'Tarde: Centro Dragão do Mar ou descanso',
             'Noite: Sushi Ryori',
         ],
-        icon: 'waves',
+        icon: 'party',
     },
     {
         date: 19,
@@ -96,13 +96,11 @@ const travelDays: TravelDay[] = [
         weekday: 'Domingo',
         title: 'Domingo - Opções com o pessoal! 🎉',
         activities: [
-            'Opção 1: 🎡 Beach Park (se não foi sábado)',
-            'Opção 2: ⛰️ Guaramiranga (serra)',
-            'Opção 3: Outro passeio em grupo',
+            'Opção 1: ⛰️ Guaramiranga (serra)',
+            'Opção 2: Outro passeio em grupo',
             'Comemorar aniversários no fim de semana',
-            'Combinar com o pessoal',
+            'Noite: Outback',
         ],
-        highlight: 'beach-park',
         icon: 'party',
     },
     {
@@ -115,6 +113,7 @@ const travelDays: TravelDay[] = [
             'Tarde: Explorar lado leste Buggy, Pedra Furada, Buraco Azul ou Lagoa do Paraíso',
             'Final da tarde/noite: por do Sol na duna praia',
         ],
+        highlight: 'jericoacoara',
         icon: 'waves',
     },
     {
@@ -127,6 +126,7 @@ const travelDays: TravelDay[] = [
             'Tarde: Explorar lado Oeste, beach club e arvore da preguiça',
             'Noite: Retornar para fortaleza',
         ],
+        highlight: 'jericoacoara',
         icon: 'plane',
     },
     {
@@ -135,11 +135,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Quarta-feira',
         title: 'Dia livre em Fortaleza',
         activities: [
-            'Opções:',
-            '🌴 Dunas (mais bonito e perto que Morro Branco)',
-            '🏛️ Museu da Cachaça',
-            '🏖️ Feirinha Beira-Mar + passeio',
-            '⛰️ Guaramiranga (serra)',
+            'Manhã: Opções - Praia do Futuro, Praia de Iracema ou Dunas',
+            'Tarde: Museu da Cachaça ou Feirinha Beira-Mar + passeio',
+            'Noite: Elliot Magia',
         ],
         icon: 'waves',
     },
@@ -149,13 +147,11 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: 'Último dia de passeio',
         activities: [
-            'Opções:',
-            '🎡 Repetir Beach Park (se quiser)',
-            '🏖️ Praia do Tatu (gêiseres naturais)',
-            '🐟 Rodízio de Sushi',
+            'Manhã: Praia do Tatu (gêiseres naturais)',
+            'Tarde: Continuar na praia ou descanso',
+            'Noite: Ronco do Mar',
         ],
-        highlight: 'beach-park',
-        icon: 'waves',
+        icon: 'party',
     },
     {
         date: 27,
@@ -163,10 +159,10 @@ const travelDays: TravelDay[] = [
         weekday: 'Sexta-feira',
         title: 'Retorno',
         activities: [
-            '🏖️ Sabiaguaba (se tiver tempo)',
-            '16:15 — Chegada no aeroporto',
-            '18:15 — Voo Fortaleza → Belo Horizonte',
-            'Ônibus BH → casa',
+            'Manhã: Sabiaguaba (se tiver tempo)',
+            'Tarde: 16:15 — Chegada no aeroporto',
+            'Noite: 18:15 — Voo Fortaleza → Belo Horizonte',
+            'Madrugada: Ônibus BH → casa',
         ],
         highlight: 'travel',
         icon: 'plane',
@@ -175,46 +171,97 @@ const travelDays: TravelDay[] = [
 
 export function TravelCalendar() {
     return (
-        <div className="container mx-auto px-4 py-8 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 max-w-6xl">
             {/* Header */}
-            <div className="text-center mb-12">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                    <Palmtree className="w-10 h-10 text-cyan-600" />
-                    <h1 className="text-cyan-700">ITINERÁRIO</h1>
-                    <Palmtree className="w-10 h-10 text-cyan-600" />
+            <div className="text-center mb-8 sm:mb-10">
+                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-100 via-blue-100 to-cyan-100 px-6 py-4 rounded-2xl border-2 border-cyan-200 shadow-md mb-4">
+                    <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-600" />
+                    <h1 className="text-cyan-700 text-xl sm:text-2xl md:text-3xl font-bold">
+                        Itinerário de Viagem
+                    </h1>
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
                 </div>
-                <h2 className="text-cyan-600 mb-2">Fortaleza & Jericoacara</h2>
-                <p className="text-gray-600">16 a 27 de Março de 2025</p>
+                <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto">
+                    Fortaleza & Jericoacoara • 16 a 27 de Março de 2025
+                </p>
             </div>
 
             {/* Legend */}
-            <div className="flex flex-wrap gap-4 justify-center mb-8 text-sm">
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded-full bg-pink-100 border-2 border-pink-300"></div>
-                    <span className="text-gray-700">Aniversário</span>
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6 text-xs text-gray-500">
+                <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-pink-300"></div>
+                    <span>Aniversário</span>
                 </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded-full bg-cyan-100 border-2 border-cyan-400"></div>
-                    <span className="text-gray-700">Beach Park</span>
+                <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+                    <span>Beach Park</span>
                 </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded-full bg-blue-100 border-2 border-blue-400"></div>
-                    <span className="text-gray-700">Viagem</span>
+                <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                    <span>Jericoacoara</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                    <span>Viagem</span>
+                </div>
+            </div>
+
+            {/* Aviso sobre Reservas */}
+            <div className="bg-white border-2 border-amber-300 rounded-2xl p-5 shadow-lg mb-8">
+                <div className="flex items-start gap-4 mb-4">
+                    <div className="p-3 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-xl">
+                        <AlertCircle className="w-5 h-5 text-amber-600" />
+                    </div>
+                    <div className="flex-1">
+                        <p className="text-xs uppercase text-amber-600 font-semibold mb-1">
+                            Atenção
+                        </p>
+                        <h3 className="font-bold text-gray-800 text-base mb-2">
+                            Dias que Necessitam Reserva
+                        </h3>
+                    </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">18/03 (Quarta)</span>
+                        <span className="text-xs text-amber-700">Sushi Ryori</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">20/03 (Sexta)</span>
+                        <span className="text-xs text-amber-700">Teatro José de Alencar</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">22/03 (Domingo)</span>
+                        <span className="text-xs text-amber-700">Outback</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">25/03 (Quarta)</span>
+                        <span className="text-xs text-amber-700">Elliot Magia</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">26/03 (Quinta)</span>
+                        <span className="text-xs text-amber-700">Ronco do Mar</span>
+                    </div>
+                </div>
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                    <p className="text-sm font-semibold text-amber-800">
+                        ⚠️ Recomendado fazer reservas com pelo menos 1 semana de antecedência!
+                    </p>
                 </div>
             </div>
 
             {/* Calendar Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                 {travelDays.map((day, index) => (
                     <DayCard key={index} day={day} />
                 ))}
             </div>
 
             {/* Footer */}
-            <div className="mt-12 text-center">
-                <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-md">
+            <div className="text-center">
+                <div className="inline-flex items-center gap-2 bg-white border-2 border-cyan-200 rounded-2xl px-6 py-3 shadow-lg">
                     <MapPin className="w-5 h-5 text-cyan-600" />
-                    <span className="text-gray-700">Boa viagem! 🌴☀️</span>
+                    <span className="text-gray-700 font-medium">Boa viagem! 🌴☀️</span>
                 </div>
             </div>
         </div>

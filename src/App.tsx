@@ -5,68 +5,79 @@ import { TravelInfo } from "./components/TravelInfo";
 import React, { useState } from "react";
 import { Calendar, DollarSign, MapPin, FileText } from "lucide-react";
 
+type TabId = 'calendar' | 'costs' | 'establishments' | 'info';
+
+const tabs = [
+    {
+        id: 'calendar' as TabId,
+        label: 'Itinerário',
+        icon: Calendar,
+        color: 'from-cyan-500 to-blue-500',
+        bgLight: 'bg-cyan-100',
+        text: 'text-cyan-600',
+    },
+    {
+        id: 'costs' as TabId,
+        label: 'Custos',
+        icon: DollarSign,
+        color: 'from-emerald-500 to-green-500',
+        bgLight: 'bg-emerald-100',
+        text: 'text-emerald-600',
+    },
+    {
+        id: 'establishments' as TabId,
+        label: 'Lugares',
+        icon: MapPin,
+        color: 'from-purple-500 to-pink-500',
+        bgLight: 'bg-purple-100',
+        text: 'text-purple-600',
+    },
+    {
+        id: 'info' as TabId,
+        label: 'Info',
+        icon: FileText,
+        color: 'from-amber-500 to-orange-500',
+        bgLight: 'bg-amber-100',
+        text: 'text-amber-600',
+    },
+];
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState<"calendar" | "costs" | "establishments" | "info">("calendar");
+  const [activeTab, setActiveTab] = useState<TabId>('calendar');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50">
-      {/* Navigation Tabs */}
-      <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-sm border-b-2 border-cyan-200 shadow-sm">
-        <div className="container mx-auto px-2 sm:px-4 py-3 sm:py-4 max-w-7xl">
-          <div className="flex gap-2 sm:gap-4 justify-center flex-wrap">
-            <button
-              onClick={() => setActiveTab("calendar")}
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all text-xs sm:text-base ${
-                activeTab === "calendar"
-                  ? "bg-cyan-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="hidden sm:inline">Itinerário</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("costs")}
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all text-xs sm:text-base ${
-                activeTab === "costs"
-                  ? "bg-green-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="hidden sm:inline">Custos</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("establishments")}
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all text-xs sm:text-base ${
-                activeTab === "establishments"
-                  ? "bg-purple-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="hidden sm:inline">Estabelecimentos</span>
-            </button>
-            <button
-              onClick={() => setActiveTab("info")}
-              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all text-xs sm:text-base ${
-                activeTab === "info"
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="hidden sm:inline">Informações</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-emerald-50">
+          {/* Header */}
+          <header className="sticky top-0 z-10 flex justify-center py-4">
+              <nav className="flex bg-gray-100 px-2 py-2 rounded-2xl shadow-lg border-2 border-gray-200 gap-1">
+                  {tabs.map((tab) => {
+                      const Icon = tab.icon;
+                      const isActive = activeTab === tab.id;
+                      return (
+                          <button
+                              key={tab.id}
+                              onClick={() => setActiveTab(tab.id)}
+                              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                                  isActive
+                                      ? 'bg-white text-gray-800 shadow-md'
+                                      : 'text-gray-500 hover:bg-white hover:text-gray-700'
+                              }`}
+                          >
+                              <Icon className={`w-4 h-4 ${isActive ? tab.text : ''}`} />
+                              <span className="hidden sm:inline">{tab.label}</span>
+                          </button>
+                      );
+                  })}
+              </nav>
+          </header>
 
-      {/* Content */}
-      {activeTab === "calendar" && <TravelCalendar />}
-      {activeTab === "costs" && <TravelCosts />}
-      {activeTab === "establishments" && <Establishments />}
-      {activeTab === "info" && <TravelInfo />}
-    </div>
+          {/* Content */}
+          <main>
+              {activeTab === 'calendar' && <TravelCalendar />}
+              {activeTab === 'costs' && <TravelCosts />}
+              {activeTab === 'establishments' && <Establishments />}
+              {activeTab === 'info' && <TravelInfo />}
+          </main>
+      </div>
   );
 }

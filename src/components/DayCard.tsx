@@ -7,16 +7,43 @@ interface DayCardProps {
 }
 
 export function DayCard({ day }: DayCardProps) {
-  const getHighlightColor = () => {
+  const getHighlightStyle = () => {
     switch (day.highlight) {
       case "birthday":
-        return "bg-gradient-to-br from-pink-50 to-pink-100 border-pink-300";
+        return {
+          border: "border-pink-300",
+          bg: "bg-gradient-to-br from-pink-50 to-pink-100",
+          icon: "text-pink-600",
+          bullet: "bg-pink-600",
+        };
       case "beach-park":
-        return "bg-gradient-to-br from-cyan-50 to-cyan-100 border-cyan-400";
+        return {
+          border: "border-cyan-400",
+          bg: "bg-gradient-to-br from-cyan-50 to-cyan-100",
+          icon: "text-cyan-600",
+          bullet: "bg-cyan-600",
+        };
+      case "jericoacoara":
+        return {
+          border: "border-emerald-400",
+          bg: "bg-gradient-to-br from-emerald-50 to-emerald-100",
+          icon: "text-emerald-600",
+          bullet: "bg-emerald-600",
+        };
       case "travel":
-        return "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-400";
+        return {
+          border: "border-blue-400",
+          bg: "bg-gradient-to-br from-blue-50 to-blue-100",
+          icon: "text-blue-600",
+          bullet: "bg-blue-600",
+        };
       default:
-        return "bg-white border-gray-200";
+        return {
+          border: "border-gray-200",
+          bg: "bg-white",
+          icon: "text-gray-600",
+          bullet: "bg-gray-400",
+        };
     }
   };
 
@@ -35,46 +62,35 @@ export function DayCard({ day }: DayCardProps) {
     }
   };
 
-  const getIconColor = () => {
-    switch (day.highlight) {
-      case "birthday":
-        return "text-pink-600";
-      case "beach-park":
-        return "text-cyan-600";
-      case "travel":
-        return "text-blue-600";
-      default:
-        return "text-gray-600";
-    }
-  };
+  const style = getHighlightStyle();
 
   return (
-    <div className={`rounded-2xl border-2 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${getHighlightColor()}`}>
+    <div className={`bg-white border-2 ${style.border} rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all`}>
       {/* Date Header */}
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-blue-700">{day.date}</span>
-            <span className="text-sm text-gray-600 uppercase">{day.weekday}</span>
+          <div className="flex items-baseline gap-2 mb-1">
+            <span className="text-xl font-bold text-gray-800">{day.date}</span>
+            <span className="text-xs text-gray-500 uppercase">{day.weekday}</span>
           </div>
-          <div className="text-sm text-gray-500">{day.month}</div>
+          <div className="text-xs text-gray-400">{day.month}</div>
         </div>
-        <div className={`${getIconColor()}`}>
+        <div className={`p-1.5 ${style.bg} rounded-lg ${style.icon}`}>
           {getIcon()}
         </div>
       </div>
 
       {/* Title */}
-      <div className="mb-4">
-        <h3 className="text-gray-800">{day.title}</h3>
+      <div className="mb-3 pb-2 border-b border-gray-100">
+        <h3 className="font-bold text-sm text-gray-800">{day.title}</h3>
       </div>
 
       {/* Activities */}
       <div className="space-y-2">
         {day.activities.map((activity, index) => (
           <div key={index} className="flex items-start gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyan-600 mt-2 flex-shrink-0"></div>
-            <p className="text-sm text-gray-700 leading-relaxed">{activity}</p>
+            <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${style.bullet}`}></div>
+            <p className="text-xs text-gray-700 leading-relaxed flex-1">{activity}</p>
           </div>
         ))}
       </div>
