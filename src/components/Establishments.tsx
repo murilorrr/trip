@@ -10,6 +10,7 @@ import {
     Filter,
     Sparkles,
     DollarSign,
+    Waves,
 } from 'lucide-react';
 import React, { useState } from 'react';
 
@@ -18,7 +19,7 @@ interface Establishment {
     price: number | null;
     link?: string;
     restriction?: string;
-    category: 'restaurant' | 'entertainment' | 'shopping' | 'attraction';
+    category: 'restaurant' | 'entertainment' | 'shopping' | 'attraction' | 'beach';
     needsReservation?: boolean;
 }
 
@@ -72,6 +73,75 @@ export function Establishments() {
             category: 'restaurant',
             needsReservation: true,
         },
+        {
+            name: 'Beach Park',
+            price: 200,
+            link: 'https://www.beachpark.com.br',
+            restriction: 'Parque aquático - dia inteiro',
+            category: 'beach',
+            needsReservation: true,
+        },
+        {
+            name: 'Praia de Sabiaguaba',
+            price: null,
+            restriction: 'Praia natural',
+            category: 'beach',
+        },
+        {
+            name: 'Praia de Iracema/Meireles',
+            price: null,
+            restriction: 'Praia urbana',
+            category: 'beach',
+        },
+        {
+            name: 'Morro Branco',
+            price: null,
+            restriction: 'Atração natural',
+            category: 'beach',
+        },
+        {
+            name: 'Lagoa do Paraíso (Jericoacoara)',
+            price: null,
+            restriction: 'Atração natural em Jericoacoara',
+            category: 'beach',
+        },
+        {
+            name: 'Lagoa Encantada',
+            price: null,
+            restriction: 'Atração natural',
+            category: 'beach',
+        },
+        {
+            name: 'Pedra Furada (Jericoacoara)',
+            price: null,
+            restriction: 'Atração natural em Jericoacoara',
+            category: 'beach',
+        },
+        {
+            name: 'Buraco Azul (Jericoacoara)',
+            price: null,
+            restriction: 'Atração natural em Jericoacoara',
+            category: 'beach',
+        },
+        {
+            name: 'Duna da Praia Por do Sol (Jericoacoara)',
+            price: null,
+            restriction: 'Por do sol',
+            category: 'beach',
+        },
+        {
+            name: 'Árvore da preguiça',
+            price: null,
+            restriction: 'Atração natural',
+            category: 'beach',
+        },
+        {
+            name: 'Ronco do Mar',
+            price: 150,
+            restriction: 'Restaurante na praia - somente à noite',
+            category: 'beach',
+            needsReservation: true,
+        },
     ];
 
     const formatCurrency = (value: number | null) => {
@@ -90,6 +160,8 @@ export function Establishments() {
                 return <Film className="w-5 h-5" />;
             case 'shopping':
                 return <ShoppingBag className="w-5 h-5" />;
+            case 'beach':
+                return <Waves className="w-5 h-5" />;
             default:
                 return <MapPin className="w-5 h-5" />;
         }
@@ -115,6 +187,12 @@ export function Establishments() {
                     bg: 'bg-gradient-to-br from-blue-50 to-blue-100',
                     icon: 'text-blue-600',
                 };
+            case 'beach':
+                return {
+                    border: 'border-cyan-300',
+                    bg: 'bg-gradient-to-br from-cyan-50 to-cyan-100',
+                    icon: 'text-cyan-600',
+                };
             default:
                 return {
                     border: 'border-gray-300',
@@ -130,6 +208,7 @@ export function Establishments() {
             entertainment: 'Entretenimento',
             shopping: 'Shopping',
             attraction: 'Atração',
+            beach: 'Praia/Atração Natural',
         };
         return labels[category] || category;
     };
@@ -153,7 +232,7 @@ export function Establishments() {
                     <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-pink-500" />
                 </div>
                 <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto">
-                    Sugestões de restaurantes, entretenimento e atrações em Fortaleza
+                    Sugestões de restaurantes, entretenimento, praias e atrações em Fortaleza
                 </p>
             </div>
 

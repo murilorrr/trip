@@ -10,6 +10,7 @@ export interface TravelDay {
     activities: string[];
     highlight?: 'birthday' | 'beach-park' | 'jericoacoara' | 'travel';
     icon?: 'plane' | 'party' | 'waves' | 'bus';
+    needsReview?: boolean;
 }
 
 const travelDays: TravelDay[] = [
@@ -25,7 +26,7 @@ const travelDays: TravelDay[] = [
             '14:30 — Embarque no voo',
             '17:00 — Chegada em Fortaleza',
             'Check-in',
-            'Noite: Two Brothers Pizza cocó',
+            'Noite: Two Brothers Pizza cocó(trocar por estabelecimento melhor)',
         ],
         highlight: 'travel',
         icon: 'plane',
@@ -44,9 +45,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Quarta-feira',
         title: 'Dia livre',
         activities: [
-            'Manhã: Mercado dos Peixes',
+            'Manhã: Praia de Meireles ou Iracema',
             'Almoço: Mercado dos Peixes',
-            'Tarde: Centro Dragão do Mar ou descanso',
+            'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
             'Noite: Sushi Ryori',
         ],
         icon: 'party',
@@ -75,6 +76,7 @@ const travelDays: TravelDay[] = [
             'Tarde e Noite: Teatro José de Alencar (ver se tem atração)',
         ],
         icon: 'party',
+        needsReview: true,
     },
     {
         date: 21,
@@ -148,6 +150,7 @@ const travelDays: TravelDay[] = [
         title: 'Último dia de passeio',
         activities: ['Manhã: Planejar', 'Tarde: Como não', 'Noite: Passa fome (Ronco do Mar)'],
         icon: 'party',
+        needsReview: true,
     },
     {
         date: 27,
