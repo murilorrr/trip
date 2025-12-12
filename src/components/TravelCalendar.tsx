@@ -65,6 +65,7 @@ const travelDays: TravelDay[] = [
         ],
         highlight: 'birthday',
         icon: 'party',
+        needsReview: true,
     },
     {
         date: 20,
