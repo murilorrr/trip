@@ -36,7 +36,11 @@ const travelDays: TravelDay[] = [
         month: 'Março',
         weekday: 'Terça-feira',
         title: 'Primeiro dia na cidade',
-        activities: ['Manhã: Praia de Sabiaguaba', 'Tarde e Noite: Shopping Rio Mar Fortaleza'],
+        activities: [
+            'Manhã: Praia de Sabiaguaba',
+            'Tarde e Noite: Shopping Rio Mar Fortaleza',
+            'Johnny Joy - Milkshake de Ferrero Rocher',
+        ],
         icon: 'waves',
     },
     {
@@ -56,7 +60,7 @@ const travelDays: TravelDay[] = [
         date: 19,
         month: 'Março',
         weekday: 'Quinta-feira',
-        title: '🎉 Dia extra de comemoração',
+        title: '🎉 Dia de comemoração',
         activities: [
             'Manhã: Praia',
             'Almoço na praia',
@@ -73,8 +77,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Sexta-feira',
         title: 'Sexta - atrações culturais! 🎉',
         activities: [
-            'Manhã: Atrações culturais (Catedral, Dragão do Mar, zoologico)',
-            'Tarde e Noite: Teatro José de Alencar (ver se tem atração)',
+            'Manhã: Alchymist Prehistoric Park',
+            'Tarde e Noite: livre',
         ],
         icon: 'party',
         needsReview: true,
@@ -86,9 +90,8 @@ const travelDays: TravelDay[] = [
         title: 'Sábado - Opções! 🎉',
         activities: [
             'Opção 1: 🎡 Beach Park (dia inteiro - 11 as 17hrs)',
-            'Opção 2: ⛰️ Guaramiranga (serra)',
-            'Opção 3: Outro passeio em grupo',
             'Noite: Combinar',
+            'Luderia - Alugar jogos de tabuleiro',
         ],
         highlight: 'beach-park',
         icon: 'party',
@@ -99,9 +102,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Domingo',
         title: 'Domingo - Opções com o pessoal! 🎉',
         activities: [
-            'Opção 1: ⛰️ Guaramiranga (serra)',
-            'Opção 2: Outro passeio em grupo',
+            'Opção: ⛰️ Guaramiranga (serra)',
             'Comemorar aniversários no fim de semana',
+            'Luderia - Alugar jogos de tabuleiro',
             'Noite: Outback',
         ],
         icon: 'party',
@@ -110,11 +113,11 @@ const travelDays: TravelDay[] = [
         date: 23,
         month: 'Março',
         weekday: 'Segunda-feira',
-        title: 'Jericoacoara',
+        title: 'Jericoacoara - Lado Leste',
         activities: [
             'Manhã: Viagem para Jericoacoara',
-            'Tarde: Explorar lado leste Buggy, Pedra Furada, Buraco Azul ou Lagoa do Paraíso',
-            'Final da tarde/noite: por do Sol na duna praia',
+            'Tarde: Explorar lado leste - Buggy, Pedra Furada, Buraco Azul ou Lagoa do Paraíso',
+            'Final da tarde/noite: Por do sol na duna praia',
         ],
         highlight: 'jericoacoara',
         icon: 'waves',
@@ -123,35 +126,38 @@ const travelDays: TravelDay[] = [
         date: 24,
         month: 'Março',
         weekday: 'Terça-feira',
-        title: 'Retorno de Jericoacoara',
+        title: 'Jericoacoara - Lado Oeste',
         activities: [
-            'Manhã: vila local',
-            'Tarde: Explorar lado Oeste, beach club e arvore da preguiça',
-            'Noite: Retornar para fortaleza',
+            'Manhã: Vila local',
+            'Tarde: Explorar lado Oeste, beach club e árvore da preguiça',
         ],
         highlight: 'jericoacoara',
-        icon: 'plane',
+        icon: 'waves',
     },
     {
         date: 25,
         month: 'Março',
         weekday: 'Quarta-feira',
-        title: 'Dia livre em Fortaleza',
+        title: 'Retorno de Jericoacoara',
         activities: [
-            'Manhã: Opções - Praia do Futuro, Praia de Iracema ou Dunas',
-            'Tarde: Museu da Cachaça ou Feirinha Beira-Mar + passeio',
-            'Noite: Elliot Magia',
+            'Manhã: Atividades livres em Jericoacoara',
+            'Tarde: Retornar para Fortaleza',
         ],
-        icon: 'waves',
+        highlight: 'jericoacoara',
+        icon: 'plane',
     },
     {
         date: 26,
         month: 'Março',
         weekday: 'Quinta-feira',
-        title: 'Último dia de passeio',
-        activities: ['Manhã: Planejar', 'Tarde: Como não', 'Noite: Passa fome (Ronco do Mar)'],
-        icon: 'party',
-        needsReview: true,
+        title: 'Dia livre em Fortaleza',
+        activities: [
+            'Manhã: Opções - Praia do Futuro, Praia de Iracema ou Dunas',
+            'Tarde: Museu da Cachaça ou Feirinha Beira-Mar + passeio',
+            'Noite: Elliot Magia',
+            'Noite: Ronco do Mar',
+        ],
+        icon: 'waves',
     },
     {
         date: 27,
@@ -174,7 +180,7 @@ export function TravelCalendar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 max-w-6xl">
             {/* Header */}
             <div className="text-center mb-8 sm:mb-10">
-                <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-100 via-blue-100 to-cyan-100 px-6 py-4 rounded-2xl border-2 border-cyan-200 shadow-md mb-4">
+                <div className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-100 via-blue-100 to-cyan-100 px-6 py-4 rounded-2xl border-2 border-cyan-200 shadow-md mb-4">
                     <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-600" />
                     <h1 className="text-cyan-700 text-xl sm:text-2xl md:text-3xl font-bold">
                         Itinerário de Viagem
@@ -209,7 +215,7 @@ export function TravelCalendar() {
             {/* Aviso sobre Reservas */}
             <div className="bg-white border-2 border-amber-300 rounded-2xl p-5 shadow-lg mb-8">
                 <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 bg-gradient-to-br from-amber-100 to-yellow-100 rounded-xl">
+                    <div className="p-3 bg-linear-to-br from-amber-100 to-yellow-100 rounded-xl">
                         <AlertCircle className="w-5 h-5 text-amber-600" />
                     </div>
                     <div className="flex-1">
@@ -235,7 +241,7 @@ export function TravelCalendar() {
                         <span className="text-xs text-amber-700">Outback</span>
                     </div>
                     <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                        <span className="text-sm font-medium text-amber-800">25/03 (Quarta)</span>
+                        <span className="text-sm font-medium text-amber-800">26/03 (Quinta)</span>
                         <span className="text-xs text-amber-700">Elliot Magia</span>
                     </div>
                     <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
@@ -252,8 +258,8 @@ export function TravelCalendar() {
 
             {/* Calendar Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                {travelDays.map((day, index) => (
-                    <DayCard key={index} day={day} />
+                {travelDays.map((day, _index) => (
+                    <DayCard day={day} />
                 ))}
             </div>
 

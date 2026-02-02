@@ -1,8 +1,9 @@
 import { TravelCalendar } from "./components/TravelCalendar";
+import React, { useState } from "react";
 import { TravelCosts } from "./components/TravelCosts";
 import { Establishments } from "./components/Establishments";
 import { TravelInfo } from "./components/TravelInfo";
-import React, { useState } from "react";
+
 import { Calendar, DollarSign, MapPin, FileText } from "lucide-react";
 
 type TabId = 'calendar' | 'costs' | 'establishments' | 'info';
@@ -46,7 +47,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabId>('calendar');
 
   return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-emerald-50">
+      <div className="min-h-screen bg-linear-to-br from-blue-50 via-cyan-50 to-emerald-50">
           {/* Header */}
           <header className="sticky top-0 z-10 flex justify-center py-4">
               <nav className="flex bg-gray-100 px-2 py-2 rounded-2xl shadow-lg border-2 border-gray-200 gap-1">
