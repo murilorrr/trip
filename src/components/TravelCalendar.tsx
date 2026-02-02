@@ -49,9 +49,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Quarta-feira',
         title: 'Dia livre',
         activities: [
-            'Manhã: Praia de Meireles ou Iracema',
-            'Almoço: Mercado dos Peixes',
-            'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
+            'Manhã: Alchymist Prehistoric Park',
+            'Tarde: livre',
             'Noite: Sushi Ryori',
         ],
         icon: 'party',
@@ -62,7 +61,7 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: '🎉 Dia de comemoração',
         activities: [
-            'Manhã: Praia',
+            'Manhã: Praia Cumbucu ou Canoa quebrada',
             'Almoço na praia',
             'Tarde: Livre',
             'Noite: Comemoração(verificar com Davi)',
@@ -77,7 +76,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Sexta-feira',
         title: 'Sexta - atrações culturais! 🎉',
         activities: [
-            'Manhã: Alchymist Prehistoric Park',
+            'Manhã: Praia de Meireles ou Iracema',
+            'Almoço: Mercado dos Peixes',
+            'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
             'Tarde e Noite: livre',
         ],
         icon: 'party',
