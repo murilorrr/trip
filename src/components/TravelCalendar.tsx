@@ -47,13 +47,14 @@ const travelDays: TravelDay[] = [
         date: 18,
         month: 'Março',
         weekday: 'Quarta-feira',
-        title: 'Hiperfoco em dinossauros',
+        title: 'Hiperfoco em dinossauros e aniversário🎉',
         activities: [
             'Manhã: Alchymist Prehistoric Park',
-            'Tarde: livre',
-            'Noite: Sushi Ryori',
+            'Tarde e Noite: comemoração verificar com Dre e Gabi',
+            'Aniversário Dre e Gabi'
         ],
         icon: 'dinosaur',
+        needsReview: true,
     },
     {
         date: 19,
@@ -64,7 +65,8 @@ const travelDays: TravelDay[] = [
             'Manhã: Praia de Canoa quebrada',
             'Almoço na praia',
             'Tarde: Livre',
-            'Noite: Comemoração(verificar com Davi)',
+            'Noite: comemoração verificar com Davi',
+            'Aniversário Davi',
         ],
         highlight: 'birthday',
         icon: 'party',
