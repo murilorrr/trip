@@ -81,7 +81,7 @@ const travelDays: TravelDay[] = [
             'Manhã: Praia de Meireles ou Iracema',
             'Almoço: Mercado dos Peixes',
             'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
-            'Noite: livre',
+            'Noite: Sushi ryori',
         ],
         icon: 'party',
         needsReview: true,
