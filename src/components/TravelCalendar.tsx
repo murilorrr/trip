@@ -9,7 +9,7 @@ export interface TravelDay {
     title: string;
     activities: string[];
     highlight?: 'birthday' | 'beach-park' | 'jericoacoara' | 'travel';
-    icon?: 'plane' | 'party' | 'waves' | 'bus';
+    icon?: 'plane' | 'party' | 'waves' | 'bus' | 'dinosaur';
     needsReview?: boolean;
 }
 
@@ -26,7 +26,7 @@ const travelDays: TravelDay[] = [
             '14:30 — Embarque no voo',
             '17:00 — Chegada em Fortaleza',
             'Check-in',
-            'Noite: Two Brothers Pizza cocó(trocar por estabelecimento melhor)',
+            'Noite: passeio pela orla de Meireles',
         ],
         highlight: 'travel',
         icon: 'plane',
@@ -37,9 +37,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Terça-feira',
         title: 'Primeiro dia na cidade',
         activities: [
-            'Manhã: Praia de Sabiaguaba',
-            'Tarde e Noite: Shopping Rio Mar Fortaleza',
-            'Johnny Joy - Milkshake de Ferrero Rocher',
+            'Manhã e Tarde: Praia de Sabiaguaba',
+            'Noite: Shopping Rio Mar Fortaleza',
+            'Johnny Joy, Gamestation e 4D Cinema',
         ],
         icon: 'waves',
     },
@@ -47,13 +47,13 @@ const travelDays: TravelDay[] = [
         date: 18,
         month: 'Março',
         weekday: 'Quarta-feira',
-        title: 'Dia livre',
+        title: 'Hiperfoco em dinossauros',
         activities: [
             'Manhã: Alchymist Prehistoric Park',
             'Tarde: livre',
             'Noite: Sushi Ryori',
         ],
-        icon: 'party',
+        icon: 'dinosaur',
     },
     {
         date: 19,
@@ -61,7 +61,7 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: '🎉 Dia de comemoração',
         activities: [
-            'Manhã: Praia Cumbucu ou Canoa quebrada',
+            'Manhã: Praia de Canoa quebrada',
             'Almoço na praia',
             'Tarde: Livre',
             'Noite: Comemoração(verificar com Davi)',
@@ -79,7 +79,7 @@ const travelDays: TravelDay[] = [
             'Manhã: Praia de Meireles ou Iracema',
             'Almoço: Mercado dos Peixes',
             'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
-            'Tarde e Noite: livre',
+            'Noite: livre',
         ],
         icon: 'party',
         needsReview: true,
@@ -104,6 +104,7 @@ const travelDays: TravelDay[] = [
         title: 'Domingo - Opções com o pessoal! 🎉',
         activities: [
             'Opção: ⛰️ Guaramiranga (serra)',
+            'Opção: Andreias (cachoeira)',
             'Comemorar aniversários no fim de semana',
             'Luderia - Alugar jogos de tabuleiro',
             'Noite: Outback',
@@ -143,6 +144,7 @@ const travelDays: TravelDay[] = [
         activities: [
             'Manhã: Atividades livres em Jericoacoara',
             'Tarde: Retornar para Fortaleza',
+            'Noite: Elliot Magia',
         ],
         highlight: 'jericoacoara',
         icon: 'plane',
@@ -153,9 +155,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: 'Dia livre em Fortaleza',
         activities: [
-            'Manhã: Opções - Praia do Futuro, Praia de Iracema ou Dunas',
-            'Tarde: Museu da Cachaça ou Feirinha Beira-Mar + passeio',
-            'Noite: Elliot Magia',
+            'Manhã: livre',
+            'Tarde: Praia do Futuro',
             'Noite: Ronco do Mar',
         ],
         icon: 'waves',
@@ -168,8 +169,19 @@ const travelDays: TravelDay[] = [
         activities: [
             'Manhã: Manhã livre',
             'Tarde: 16:15 — Chegada no aeroporto',
-            'Noite: 18:15 — Voo Fortaleza → Belo Horizonte',
-            'Madrugada: Ônibus BH → casa',
+            'Noite: 18:15 — Voo Fortaleza → 21:00 Belo Horizonte',
+            'Passar a noite em BH',
+        ],
+        highlight: 'travel',
+        icon: 'plane',
+    },
+    {
+        date: 28,
+        month: 'Março',
+        weekday: 'Sábado',
+        title: 'Retorno para casa',
+        activities: [
+            'Manhã: Ônibus BH → casa',
         ],
         highlight: 'travel',
         icon: 'plane',

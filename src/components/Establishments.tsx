@@ -66,14 +66,6 @@ export function Establishments() {
             needsReservation: true,
         },
         {
-            name: 'Two Brothers Pizza',
-            price: 84.99,
-            link: 'https://www.barato.com.br/fortaleza/rodizio-two-brothers',
-            restriction: 'Somente à noite',
-            category: 'restaurant',
-            needsReservation: true,
-        },
-        {
             name: 'Beach Park',
             price: 200,
             link: 'https://www.beachpark.com.br',
@@ -91,12 +83,6 @@ export function Establishments() {
             name: 'Praia de Iracema/Meireles',
             price: null,
             restriction: 'Praia urbana',
-            category: 'beach',
-        },
-        {
-            name: 'Morro Branco',
-            price: null,
-            restriction: 'Atração natural',
             category: 'beach',
         },
         {

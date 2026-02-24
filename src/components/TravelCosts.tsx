@@ -27,14 +27,14 @@ export function TravelCosts() {
     const costs: CostItem[] = [
         {
             category: 'Transporte',
-            description: 'Passagem aérea (ida) - BH → Fortaleza',
+            description: 'Passagem aérea (ida) - BH → Fortaleza (2 pessoas)',
             quantity: 1,
             unitPrice: 950,
             icon: <Plane className="w-5 h-5" />,
         },
         {
             category: 'Transporte',
-            description: 'Passagem aérea (volta) - Fortaleza → BH',
+            description: 'Passagem aérea (volta) - Fortaleza → BH (2 pessoas)',
             quantity: 1,
             unitPrice: 1250,
             icon: <Plane className="w-5 h-5" />,
@@ -69,16 +69,16 @@ export function TravelCosts() {
         },
         {
             category: 'Atrações',
-            description: 'Jericoacoara (hospedagem 1 noite)',
+            description: 'Jericoacoara (hospedagem 2 noites)',
             quantity: 1,
-            unitPrice: 200,
+            unitPrice: 420,
             icon: <Ticket className="w-5 h-5" />,
         },
         {
             category: 'Atrações',
-            description: 'Passeios (buggy, lancha, atrações em Jeri)',
+            description: 'Passeios (buggy, lancha, atrações em Jeri - 2 pessoas)',
             quantity: 1,
-            unitPrice: 350,
+            unitPrice: 250,
             icon: <Ticket className="w-5 h-5" />,
         },
         {
@@ -90,7 +90,7 @@ export function TravelCosts() {
         },
         {
             category: 'Estabelecimentos',
-            description: 'Elliot Magia (show)',
+            description: 'Elliot Magia (show - 2 pessoas)',
             quantity: 1,
             unitPrice: 300,
             icon: <Film className="w-5 h-5" />,
@@ -98,14 +98,14 @@ export function TravelCosts() {
         },
         {
             category: 'Estabelecimentos',
-            description: 'Shopping Rio Mar - Gamestation',
+            description: 'Shopping Rio Mar - Gamestation (2 pessoas)',
             quantity: 1,
             unitPrice: 120,
             icon: <Film className="w-5 h-5" />,
         },
         {
             category: 'Estabelecimentos',
-            description: 'Sushi Ryori',
+            description: 'Sushi Ryori (2 pessoas)',
             quantity: 1,
             unitPrice: 300,
             icon: <UtensilsCrossed className="w-5 h-5" />,
@@ -113,34 +113,39 @@ export function TravelCosts() {
         },
         {
             category: 'Estabelecimentos',
-            description: 'Mercado dos Peixes (almoço)',
+            description: 'Mercado dos Peixes (almoço - 2 pessoas)',
             quantity: 1,
             unitPrice: 400,
             icon: <UtensilsCrossed className="w-5 h-5" />,
         },
         {
             category: 'Estabelecimentos',
-            description: 'Shopping 4D Cinema',
-            quantity: 1,
-            unitPrice: 120,
-            icon: <Film className="w-5 h-5" />,
-            needsReservation: true,
-        },
-        {
-            category: 'Estabelecimentos',
-            description: 'Outback',
+            description: 'Alchymist Prehistoric Park (2 pessoas)',
             quantity: 2,
-            unitPrice: 120,
+            unitPrice: 100,
+            icon: 'dinosaur',
+        },
+        {
+            category: 'Estabelecimentos',
+            description: 'Outback (2 pessoas)',
+            quantity: 1,
+            unitPrice: 200,
             icon: <UtensilsCrossed className="w-5 h-5" />,
             needsReservation: true,
         },
         {
             category: 'Estabelecimentos',
-            description: 'Two Brothers Pizza',
-            quantity: 1,
-            unitPrice: 100,
+            description: 'Johnny Joy - Milkshake Ferrero Rocher (2 pessoas)',
+            quantity: 2,
+            unitPrice: 40,
             icon: <UtensilsCrossed className="w-5 h-5" />,
-            needsReservation: true,
+        },
+        {
+            category: 'Estabelecimentos',
+            description: 'Luderia - Alugar jogos de tabuleiro (2 dias)',
+            quantity: 2,
+            unitPrice: 60,
+            icon: <Film className="w-5 h-5" />,
         },
         {
             category: 'Estabelecimentos',
@@ -166,10 +171,17 @@ export function TravelCosts() {
         },
         {
             category: 'Transporte',
-            description: 'Gasolina (estimativa - ~500km)',
+            description: 'Gasolina (estimativa - ~800km incluindo Jericoacoara)',
             quantity: 1,
-            unitPrice: 300,
+            unitPrice: 500,
             icon: <Car className="w-5 h-5" />,
+        },
+        {
+            category: 'Alimentação',
+            description: 'Alimentação geral (café da manhã, lanches, refeições não especificadas - 12 dias para 2 pessoas)',
+            quantity: 9,
+            unitPrice: 160,
+            icon: <UtensilsCrossed className="w-5 h-5" />,
         },
         {
             category: 'Outros',
@@ -407,7 +419,7 @@ export function TravelCosts() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Two Brothers Pizza</strong> - Reservar mesa
+                                <strong>Ronco do Mar</strong> - Reservar mesa
                             </div>
                         </div>
                         <p className="mt-4 text-sm font-semibold text-red-800 bg-red-100 rounded-lg p-3">

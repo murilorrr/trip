@@ -57,6 +57,8 @@ export function DayCard({ day }: DayCardProps) {
                 return <Waves className="w-5 h-5" />;
             case 'bus':
                 return <Bus className="w-5 h-5" />;
+            case 'dinosaur':
+                return <span className="text-2xl">🦖</span>;
             default:
                 return <Calendar className="w-5 h-5" />;
         }
