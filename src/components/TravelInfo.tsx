@@ -14,6 +14,10 @@ import {
     Sparkles,
     Plane,
     Heart,
+    Film,
+    Building2,
+    Telescope,
+    Clock,
 } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
@@ -361,6 +365,119 @@ export function TravelInfo() {
                     <div className="p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl border-2 border-cyan-400 shadow-md">
                         <p className="text-sm text-gray-600 mb-2">Idioma</p>
                         <p className="text-gray-800 text-sm leading-relaxed">Português</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Lugares Turísticos */}
+            <div className="bg-white border-2 border-purple-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 mb-8">
+                <div className="flex items-start gap-3 mb-4">
+                    <div className="p-6 bg-purple-100 rounded-2xl shadow-md">
+                        <Sparkles className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div className="flex-1">
+                        <p className="text-sm uppercase text-purple-600">Tempo Livre</p>
+                        <h3 className="text-gray-800 text-sm leading-relaxed">
+                            Lugares Turísticos
+                        </h3>
+                        <p className="text-sm text-gray-600 mt-2">
+                            Opções para visitar quando tiver tempo livre
+                        </p>
+                    </div>
+                </div>
+
+                <div className="space-y-4">
+                    {/* Cinema do Dragão */}
+                    <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl border-2 border-purple-300 shadow-md p-5">
+                        <div className="flex items-start gap-3 mb-3">
+                            <div className="p-2 bg-purple-200 rounded-xl">
+                                <Film className="w-5 h-5 text-purple-700" />
+                            </div>
+                            <div className="flex-1">
+                                <h4 className="font-semibold text-purple-800 text-base mb-2">
+                                    Cinema do Dragão
+                                </h4>
+                                <div className="space-y-2 text-sm text-gray-700">
+                                    <div className="flex items-start gap-2">
+                                        <Clock className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Horário:</span> Programação regular de terça a domingo, das 13h40 às 22h (exceto em programações especiais, quando o equipamento abre, excepcionalmente, também às segundas).
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start gap-2">
+                                        <CreditCard className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Ingressos:</span> R$ 8 (meia) e R$ 16,00 (inteira). Às terças-feiras, o ingresso tem valor promocional: R$ 10,00 (inteira) e R$ 5,00 (meia).
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start gap-2">
+                                        <Clock className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Bilheteria física:</span> De terça a domingo, das 13h30 às 20h15, mas é preferível que o público antecipe a compra de ingressos online.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Museus */}
+                    <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl border-2 border-indigo-300 shadow-md p-5">
+                        <div className="flex items-start gap-3 mb-3">
+                            <div className="p-2 bg-indigo-200 rounded-xl">
+                                <Building2 className="w-5 h-5 text-indigo-700" />
+                            </div>
+                            <div className="flex-1">
+                                <h4 className="font-semibold text-indigo-800 text-base mb-2">
+                                    Museus (Museu da Cultura Cearense e Museu de Arte Contemporânea do Ceará)
+                                </h4>
+                                <div className="space-y-2 text-sm text-gray-700">
+                                    <div className="flex items-start gap-2">
+                                        <Clock className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Horário:</span> Visitas de quarta a sexta, das 9h às 18h (com acesso até as 17h30), e aos sábados, domingos e feriados, das 13h às 18h (com acesso até as 17h30).
+                                        </p>
+                                    </div>
+                                    <p className="text-xs text-indigo-600 mt-2">
+                                        Confira a programação dos museus online antes de visitar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Planetário */}
+                    <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl border-2 border-cyan-300 shadow-md p-5">
+                        <div className="flex items-start gap-3 mb-3">
+                            <div className="p-2 bg-cyan-200 rounded-xl">
+                                <Telescope className="w-5 h-5 text-cyan-700" />
+                            </div>
+                            <div className="flex-1">
+                                <h4 className="font-semibold text-cyan-800 text-base mb-2">
+                                    Planetário Rubens de Azevedo
+                                </h4>
+                                <div className="space-y-2 text-sm text-gray-700">
+                                    <div className="flex items-start gap-2">
+                                        <Clock className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Horário:</span> Sessões abertas ao público às quintas e sextas, às 18h e 19h, e aos sábados e domingos, das 17h às 20h.
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start gap-2">
+                                        <CreditCard className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Ingressos:</span> R$ 10,00 (meia) e R$ 20,00 (inteira).
+                                        </p>
+                                    </div>
+                                    <div className="flex items-start gap-2">
+                                        <Clock className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                                        <p>
+                                            <span className="font-medium">Bilheteria física:</span> De quinta a domingo, das 14h às 20h.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
