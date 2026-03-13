@@ -26,7 +26,7 @@ const travelDays: TravelDay[] = [
             '14:30 — Embarque no voo',
             '17:00 — Chegada em Fortaleza',
             'Check-in',
-            'Noite: passeio pela orla de Meireles',
+            'Noite: Passeio Beira Mar Fortaleza',
         ],
         highlight: 'travel',
         icon: 'plane',
@@ -37,9 +37,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Terça-feira',
         title: 'Primeiro dia na cidade',
         activities: [
-            'Manhã e Tarde: Praia de Sabiaguaba',
-            'Noite: Shopping Rio Mar Fortaleza',
-            'Johnny Joy, Gamestation e 4D Cinema',
+            'Manhã: parque do Cocó triha',
+            'Tarde: Supermercado - Shopping Rio Mar Fortaleza - Johnny Joy, Gamestation e 4D Cinema',
+            'Noite: Outback(usar cupom bemobucks)',
         ],
         icon: 'waves',
     },
@@ -50,11 +50,11 @@ const travelDays: TravelDay[] = [
         title: 'Hiperfoco em dinossauros e aniversário🎉',
         activities: [
             'Manhã: Alchymist Prehistoric Park',
-            'Tarde e Noite: comemoração verificar com Dre e Gabi',
+            'Tarde: Alchymist Beach club',
+            'Noite: Cake production',
             'Aniversário Dre e Gabi'
         ],
         icon: 'dinosaur',
-        needsReview: true,
     },
     {
         date: 19,
@@ -64,8 +64,7 @@ const travelDays: TravelDay[] = [
         activities: [
             'Manhã: Praia de Canoa quebrada',
             'Almoço na praia',
-            'Tarde: Livre',
-            'Noite: comemoração verificar com Davi',
+            'Tarde e Noite: Livre - comemoração verificar com Davi',
             'Aniversário Davi',
         ],
         highlight: 'birthday',
@@ -78,13 +77,12 @@ const travelDays: TravelDay[] = [
         weekday: 'Sexta-feira',
         title: 'Sexta - atrações culturais! 🎉',
         activities: [
-            'Manhã: Praia de Meireles ou Iracema',
+            'Manhã: Praia de Meireles e Iracema - Jardim Japones',
             'Almoço: Mercado dos Peixes',
-            'Tarde: Centro Dragão do Mar e Mercado São Sebastião',
-            'Noite: Sushi ryori',
+            'Tarde: Livre',
+            'Noite: Sushi ryori ou Lasgostinne',
         ],
         icon: 'party',
-        needsReview: true,
     },
     {
         date: 21,
@@ -92,12 +90,13 @@ const travelDays: TravelDay[] = [
         weekday: 'Sábado',
         title: 'Sábado - Opções! 🎉',
         activities: [
-            'Opção 1: 🎡 Beach Park (dia inteiro - 11 as 17hrs)',
-            'Noite: Combinar',
-            'Luderia - Alugar jogos de tabuleiro',
+            'Manha: Livre',
+            'Tarde: Volei',
+            'Noite: Luderia - Alugar jogos de tabuleiro( Wyrmspan, forest shufle, castle combo)',
         ],
         highlight: 'beach-park',
         icon: 'party',
+        needsReview: true,
     },
     {
         date: 22,
@@ -105,11 +104,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Domingo',
         title: 'Domingo - Opções com o pessoal! 🎉',
         activities: [
-            'Opção: ⛰️ Guaramiranga (serra)',
-            'Opção: Andreias (cachoeira)',
-            'Comemorar aniversários no fim de semana',
-            'Luderia - Alugar jogos de tabuleiro',
-            'Noite: Outback',
+            'Manha e Tarde: BeachPark',
+            'Noite: Comemorar aniversários no fim de semana + Jogos de tabuleiro',
         ],
         icon: 'party',
     },
@@ -119,6 +115,7 @@ const travelDays: TravelDay[] = [
         weekday: 'Segunda-feira',
         title: 'Jericoacoara - Lado Leste',
         activities: [
+            'Verificar tempo*, se chuvoso, deve ser desmarcado',
             'Manhã: Viagem para Jericoacoara',
             'Tarde: Explorar lado leste - Buggy, Pedra Furada, Buraco Azul ou Lagoa do Paraíso',
             'Final da tarde/noite: Por do sol na duna praia',
@@ -157,8 +154,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: 'Dia livre em Fortaleza',
         activities: [
-            'Manhã: livre',
-            'Tarde: Praia do Futuro',
+            'Manhã: Praia do Futuro - Chico do carangueijo ou Crocobeach',
+            'Tarde: Dragão do Mar - Museum da fotografia',
             'Noite: Ronco do Mar',
         ],
         icon: 'waves',
@@ -170,6 +167,7 @@ const travelDays: TravelDay[] = [
         title: 'Retorno para Belo Horizonte',
         activities: [
             'Manhã: Manhã livre',
+            'Sair do hotel as 14:30',
             'Tarde: 16:15 — Chegada no aeroporto',
             'Noite: 18:15 — Voo Fortaleza → 21:00 Belo Horizonte',
             'Passar a noite em BH',
@@ -183,7 +181,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Sábado',
         title: 'Retorno para casa',
         activities: [
-            'Manhã: Ônibus BH → casa',
+            'Manhã: Galeria do Pão de Queijo',
+            'Tarde: 18:00 - Onibus Campo belo'
         ],
         highlight: 'travel',
         icon: 'plane',
