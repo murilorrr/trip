@@ -243,19 +243,23 @@ export function TravelCalendar() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                     <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                        <span className="text-sm font-medium text-amber-800">18/03 (Quarta)</span>
-                        <span className="text-xs text-amber-700">Sushi Ryori</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                        <span className="text-sm font-medium text-amber-800">20/03 (Sexta)</span>
-                        <span className="text-xs text-amber-700">Teatro José de Alencar</span>
-                    </div>
-                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                        <span className="text-sm font-medium text-amber-800">22/03 (Domingo)</span>
+                        <span className="text-sm font-medium text-amber-800">17/03 (Terça)</span>
                         <span className="text-xs text-amber-700">Outback</span>
                     </div>
                     <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
-                        <span className="text-sm font-medium text-amber-800">26/03 (Quinta)</span>
+                        <span className="text-sm font-medium text-amber-800">17/03 (Terça)</span>
+                        <span className="text-xs text-amber-700">4D Cinema</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">20/03 (Sexta)</span>
+                        <span className="text-xs text-amber-700">Sushi Ryori</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">22/03 (Domingo)</span>
+                        <span className="text-xs text-amber-700">Beach Park</span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">
+                        <span className="text-sm font-medium text-amber-800">25/03 (Quarta)</span>
                         <span className="text-xs text-amber-700">Elliot Magia</span>
                     </div>
                     <div className="flex items-center gap-2 p-3 bg-amber-50 rounded-xl border border-amber-200">

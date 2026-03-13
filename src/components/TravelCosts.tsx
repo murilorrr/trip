@@ -59,6 +59,7 @@ export function TravelCosts() {
             quantity: 2,
             unitPrice: 210,
             icon: <Ticket className="w-5 h-5" />,
+            needsReservation: true,
         },
         {
             category: 'Atrações',
@@ -403,23 +404,27 @@ export function TravelCosts() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-red-700">
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Elliot Magia</strong> - Reservar com antecedência
+                                <strong>17/03 - Outback</strong> - Reservar mesa
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Sushi Ryori</strong> - Reservar mesa
+                                <strong>17/03 - 4D Cinema</strong> - Ingressos antecipados
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Shopping 4D Cinema</strong> - Ingressos antecipados
+                                <strong>20/03 - Sushi Ryori</strong> - Reservar mesa
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Outback</strong> - Reservar (especialmente fins de semana)
+                                <strong>22/03 - Beach Park</strong> - Ingressos antecipados
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <strong>Ronco do Mar</strong> - Reservar mesa
+                                <strong>25/03 - Elliot Magia</strong> - Reservar com antecedência
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                                <strong>26/03 - Ronco do Mar</strong> - Reservar mesa
                             </div>
                         </div>
                         <p className="mt-4 text-sm font-semibold text-red-800 bg-red-100 rounded-lg p-3">
