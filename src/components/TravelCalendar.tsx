@@ -37,8 +37,8 @@ const travelDays: TravelDay[] = [
         weekday: 'Terça-feira',
         title: 'Primeiro dia na cidade',
         activities: [
-            'Manhã: parque do Cocó triha',
-            'Tarde: Supermercado - Shopping Rio Mar Fortaleza - Johnny Joy, Gamestation e 4D Cinema',
+            'Manhã: Praia de Canoa quebrada',
+            'Almoço na praia',
             'Noite: Outback(usar cupom bemobucks)',
         ],
         icon: 'waves',
@@ -62,9 +62,9 @@ const travelDays: TravelDay[] = [
         weekday: 'Quinta-feira',
         title: '🎉 Dia de comemoração',
         activities: [
-            'Manhã: Praia de Canoa quebrada',
-            'Almoço na praia',
-            'Tarde e Noite: Livre - comemoração verificar com Davi',
+            'Manhã: parque do Cocó triha',
+            'Tarde: Supermercado - Shopping Rio Mar Fortaleza - Johnny Joy, Gamestation e 4D Cinema',
+            'Noite: Livre - comemoração verificar com Davi',
             'Aniversário Davi',
         ],
         highlight: 'birthday',
@@ -182,7 +182,7 @@ const travelDays: TravelDay[] = [
         title: 'Retorno para casa',
         activities: [
             'Manhã: Galeria do Pão de Queijo',
-            'Tarde: 18:00 - Onibus Campo belo'
+            'Tarde: 17:00 - Onibus Campo Belo'
         ],
         highlight: 'travel',
         icon: 'plane',
