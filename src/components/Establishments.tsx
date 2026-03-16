@@ -40,13 +40,6 @@ export function Establishments() {
             category: 'entertainment',
         },
         {
-            name: 'Sushi Ryori',
-            price: 300,
-            restriction: 'Somente à noite',
-            category: 'restaurant',
-            needsReservation: true,
-        },
-        {
             name: 'Mercado dos Peixes',
             price: 400,
             restriction: 'Somente de dia - almoço',
@@ -66,14 +59,6 @@ export function Establishments() {
             needsReservation: true,
         },
         {
-            name: 'Beach Park',
-            price: 200,
-            link: 'https://www.beachpark.com.br',
-            restriction: 'Parque aquático - dia inteiro',
-            category: 'beach',
-            needsReservation: true,
-        },
-        {
             name: 'Praia de Sabiaguaba',
             price: null,
             restriction: 'Praia natural',
@@ -86,37 +71,7 @@ export function Establishments() {
             category: 'beach',
         },
         {
-            name: 'Lagoa do Paraíso (Jericoacoara)',
-            price: null,
-            restriction: 'Atração natural em Jericoacoara',
-            category: 'beach',
-        },
-        {
             name: 'Lagoa Encantada',
-            price: null,
-            restriction: 'Atração natural',
-            category: 'beach',
-        },
-        {
-            name: 'Pedra Furada (Jericoacoara)',
-            price: null,
-            restriction: 'Atração natural em Jericoacoara',
-            category: 'beach',
-        },
-        {
-            name: 'Buraco Azul (Jericoacoara)',
-            price: null,
-            restriction: 'Atração natural em Jericoacoara',
-            category: 'beach',
-        },
-        {
-            name: 'Duna da Praia Por do Sol (Jericoacoara)',
-            price: null,
-            restriction: 'Por do sol',
-            category: 'beach',
-        },
-        {
-            name: 'Árvore da preguiça',
             price: null,
             restriction: 'Atração natural',
             category: 'beach',
@@ -128,6 +83,13 @@ export function Establishments() {
             category: 'beach',
             needsReservation: true,
         },
+        {
+            name: 'Rooftop sushi',
+            price: 300,
+            restriction: 'Restaurante cobertura - somente a noite',
+            category: 'restaurant',
+            needsReservation: true
+        }
     ];
 
     const formatCurrency = (value: number | null) => {
